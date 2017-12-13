@@ -29,17 +29,14 @@ $container
 /************
  * DOCTRINE *
  ************/
-$container
-    ->register('doctrine', ...)
+//$container->register('doctrine', ...)
 
 /*
 $paths         = [__DIR__ . "/Entity"];
 $isDevMode     = true;
 $config        = Setup::createAnnotationMetadataConfiguration($paths, $isDevMode, null, null, false);
 $entityManager = EntityManager::create($params['db'], $config);
-*/
 
-/*
 $repo          = $container->get('article_repository');//$container->get('doctrine')->getRepository(Article::class);
 $articles      = $repo->loadAll(Article::MAX_PER_PAGE, ($page - 1) * Article::MAX_PER_PAGE);
 $count         = $repo->count();
