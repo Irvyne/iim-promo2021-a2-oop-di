@@ -1,0 +1,7 @@
+{
+    "require": {
+        "symfony/dependency-injection": "^4.0",
+        "swiftmailer/swiftmailer": "^6.0",
+        "doctrine/orm": "^2.5"
+    }
+}
