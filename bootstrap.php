@@ -18,8 +18,10 @@ $container
     ->register('mailer_transport', Swift_SmtpTransport::class)
     ->addArgument('smtp.example.org')
     ->addArgument(25)
-    ->addMethodCall('setUsername', 'username')
-    ->addMethodCall('setPassword', 'password');
+    ->addMethodCall('setUsername', ['username'])
+    ->addMethodCall('setPassword', ['password'])
+    ->setPublic(false)
+    ->setPrivate(true);
 
 // 2. Create the service `mailer` with configuration
 $container
@@ -29,15 +31,25 @@ $container
 /************
  * DOCTRINE *
  ************/
-//$container->register('doctrine', ...)
+//Setup::createAnnotationMetadataConfiguration($paths, $isDevMode, null, null, false);
+$container
+    ->register('doctrine_config', \Doctrine\ORM\Configuration::class)
+    ->setFactory([Setup::class, 'createAnnotationMetadataConfiguration'])
+    ->addArgument([__DIR__ . "/Entity"])
+    ->addArgument(true)
+    ->addArgument(null)
+    ->addArgument(null)
+    ->addArgument(false)
+    ->setPublic(false)
+    ->setPrivate(true);
 
-/*
-$paths         = [__DIR__ . "/Entity"];
-$isDevMode     = true;
-$config        = Setup::createAnnotationMetadataConfiguration($paths, $isDevMode, null, null, false);
-$entityManager = EntityManager::create($params['db'], $config);
+//EntityManager::create($params['db'], $config);
+$container
+    ->register('doctrine', EntityManager::class)
+    ->setFactory([EntityManager::class, 'create'])
+    ->addArgument($params['db'])
+    ->addArgument(new Reference('doctrine_config'));
 
-$repo          = $container->get('article_repository');//$container->get('doctrine')->getRepository(Article::class);
-$articles      = $repo->loadAll(Article::MAX_PER_PAGE, ($page - 1) * Article::MAX_PER_PAGE);
-$count         = $repo->count();
-*/
+
+return $container;
+
