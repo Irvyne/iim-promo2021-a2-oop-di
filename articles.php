@@ -9,8 +9,6 @@ dump(
 );
 
 // 2.
-/*
 dump(
     $container->get('doctrine.repository.article')->loadAll()
 );
-*/

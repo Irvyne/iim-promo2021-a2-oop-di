@@ -3,10 +3,13 @@ require __DIR__ . '/vendor/autoload.php';
 
 $params = require __DIR__ . '/parameters.php';
 
+use App\Entity\Article;
+use Doctrine\ORM\Repository\DefaultRepositoryFactory;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Reference;
 use Doctrine\ORM\Tools\Setup;
 use Doctrine\ORM\EntityManager;
+use Doctrine\ORM\EntityRepository;
 
 $container = new ContainerBuilder();
 
@@ -50,6 +53,12 @@ $container
     ->addArgument($params['db'])
     ->addArgument(new Reference('doctrine_config'));
 
+// getRepository(Article::class);
+$container
+    ->register('doctrine.repository.article', EntityRepository::class)
+    ->setFactory([new Reference('doctrine'), 'getRepository'])
+    ->addArgument(Article::class)
+;
 
 return $container;
 
