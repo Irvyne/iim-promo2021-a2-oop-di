@@ -3,17 +3,14 @@
 /** @var \Symfony\Component\DependencyInjection\ContainerBuilder $container */
 $container = require __DIR__.'/bootstrap.php';
 
-dump($container->get('doctrine'));
-
-/*
 // 1.
 dump(
-    $container->get('doctrine')->getRepository(\App\Entity\Article::class)->findAll()
+    $container->get('doctrine')->getRepository(\App\Entity\Article::class)->loadAll()
 );
 
 // 2.
 /*
 dump(
-    $container->get('doctrine.repository.article')->findAll()
+    $container->get('doctrine.repository.article')->loadAll()
 );
 */

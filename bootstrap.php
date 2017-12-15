@@ -35,7 +35,7 @@ $container
 $container
     ->register('doctrine_config', \Doctrine\ORM\Configuration::class)
     ->setFactory([Setup::class, 'createAnnotationMetadataConfiguration'])
-    ->addArgument([__DIR__ . "/Entity"])
+    ->addArgument([__DIR__ . "/src/Entity"])
     ->addArgument(true)
     ->addArgument(null)
     ->addArgument(null)
