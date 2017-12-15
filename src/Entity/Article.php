@@ -40,6 +40,13 @@ class Article
      */
     private $status;
 
+    /**
+     * @var User
+     *
+     * @ORM\ManyToOne(targetEntity="User")
+     */
+    private $author;
+
     const STATUS_PUBLISHED   = 0;
     const STATUS_UNPUBLISHED = 1;
     const STATUS_DRAFT       = 2;
@@ -153,5 +160,25 @@ class Article
             self::STATUS_UNPUBLISHED,
             self::STATUS_PUBLISHED,
         ];
+    }
+
+    /**
+     * @return User
+     */
+    public function getAuthor(): ?User
+    {
+        return $this->author;
+    }
+
+    /**
+     * @param User $author
+     *
+     * @return Article
+     */
+    public function setAuthor(User $author): Article
+    {
+        $this->author = $author;
+
+        return $this;
     }
 }
