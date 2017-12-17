@@ -93,49 +93,49 @@ Create a tiny blog website with a front and an admin part.
 > All pages must have a valid navbar to navigate to all available pages (with context, when not logged, don't display admin pages in navbar).  
   Plus the username OR email of the logged in user must be present in the navbar instead of "Login".
 
-* **Homepage (index.php)**
+#### Pages > Homepage (index.php)
 
 Show all articles with a pagination (between 6-12 articles per page).  
 
 Per article display the title, the excerpt, the creation date (and the author of the article).
 
-* **Article (article.php)**
+#### Pages > Article (article.php)
 
 Show all articles with a pagination (between 6-12 articles per page).  
 
 Per article display the title, the excerpt, the creation date (and the author of the article).
 
 
-* **Login (login.php)**
+#### Pages > Login (login.php)
 
 Shows a login form (username OR email + password).
   
 Display when not connected.  
 Redirect to homepage if user access the page while he's already logged in.  
 
-* **Logout (logout.php)**
+#### Pages > Logout (logout.php)
 
 Log out a user (destroy the session, ...) and redirect him to the homepage.
 
-* **Admin List Pages (admin_articles_list.php AND admin_users_list.php)**
+#### Pages > Admin List Pages (admin_articles_list.php AND admin_users_list.php)
 
 Display when connected only.  
 Display in a table all data of Entities (with pagination if > 100 items).  
 A button to edit and remove each Entity must be present.  
 Plus a button to be able to create a new article.  
 
-* **Admin Edit Pages (admin_articles_edit.php AND admin_users_edit.php)**
+#### Pages > Admin Edit Pages (admin_articles_edit.php AND admin_users_edit.php)
 
 Display when connected only.  
 I need to be able to edit (form) a single Entity via its id (use $_GET[]).  
 Add a `Save` and `Cancel` button.  
 
-* **Admin New Pages (admin_articles_new.php AND admin_users_new.php)**
+#### Pages > Admin New Pages (admin_articles_new.php AND admin_users_new.php)
 
 Display when connected only.  
 I need to be able to create a new Entity (form).  
 
-* **Admin Delete Pages (admin_articles_delete.php AND admin_users_delete.php)**
+#### Pages > Admin Delete Pages (admin_articles_delete.php AND admin_users_delete.php)
 
 Display when connected only.  
 The page remove a single Entity via its id (use $_GET[]) and redirect directly to the `List` of the Entity.  
