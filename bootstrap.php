@@ -1,17 +1,16 @@
 <?php
-require __DIR__ . '/vendor/autoload.php';
 
-$params = require __DIR__ . '/parameters.php';
+require __DIR__ . '/vendor/autoload.php';
 
 use App\Entity\Article;
 use App\Entity\User;
-use Doctrine\ORM\Repository\DefaultRepositoryFactory;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Reference;
 use Doctrine\ORM\Tools\Setup;
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityRepository;
 
+$params    = require __DIR__ . '/parameters.php';
 $container = new ContainerBuilder();
 
 /***************
@@ -66,4 +65,3 @@ $container
     ->addArgument(User::class);
 
 return $container;
-
