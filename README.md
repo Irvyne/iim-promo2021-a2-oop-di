@@ -101,9 +101,9 @@ Per article display the title, the excerpt, the creation date (and the author of
 
 #### Pages > Article (article.php)
 
-Show all articles with a pagination (between 6-12 articles per page).  
+Show one article via its id (use $_GET[]).    
 
-Per article display the title, the excerpt, the creation date (and the author of the article).
+The page must display the title, the content, the creation date (and the author of the article).
 
 
 #### Pages > Login (login.php)
